@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  # api:
+  #   container_name: itunes_api
+  #   build: ./api
+  #   command: nodemon src/app.js
+  #   volumes:
+  #     - ./api:/usr/src/api
+  #   ports:
+  #     - 3001:3001
+
+  front:
+    container_name: itunes_front
+    build: ./front
+    command: npm run dev
+    stdin_open: true
+    volumes:
+      - ./front:/usr/src/
+      - /usr/src/node_modules
+    ports:
+      - 3000:3000
+    depends_on:
+      - api
