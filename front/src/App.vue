@@ -13,7 +13,6 @@ let artistName = ref<string>("");
 let resultCountValue = ref<number>(0);
 
 const processResults = ({ resultCount, results, artist }: SearchAlbumData) => {
-  console.log({ resultCount, results, artist });
   artistName.value = artist;
   resultsData.value = results;
   resultCountValue.value = resultCount;
@@ -31,11 +30,11 @@ const processResults = ({ resultCount, results, artist }: SearchAlbumData) => {
       </h1>
     </div>
     <div v-else>
-      <h1>
+      <h1 class="mb-3">
         Albums for
         <span class="font-bold">{{ artistName }}: {{ resultCountValue }}</span>
       </h1>
-      <div>
+      <div class="grid grid-cols-5 gap-4">
         <div v-for="album in resultsData">
           <h2>{{ album.collectionName }}</h2>
           <p>{{ album.artistName }}</p>

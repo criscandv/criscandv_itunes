@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onBeforeMount } from "vue";
 import { getAlbums } from "../api/albums";
 
-let artist = ref("Mago de oz");
+let artist = ref<string>("Mago de oz");
 
 const emit = defineEmits(["searchResults"]);
 
@@ -13,6 +13,10 @@ const findAlbumByArtist = async () => {
   let { resultCount, results } = data;
   emit("searchResults", { resultCount, results, artist: value });
 };
+
+onBeforeMount(() => {
+  findAlbumByArtist();
+});
 </script>
 
 <template>
