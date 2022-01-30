@@ -40,8 +40,8 @@ To test the application, you need to previously install the packages in both of 
 The next you can se is:
 <br>
 <img src="front_tests.png" alt="front_tests.png" style="height: 150px; width: auto;"/>
-<span style="color: gray; font-size: 12px;">Front tests</span>
+<span style="color: gray; font-size: 12px; display:block;">Front tests</span>
 
 <br>
 <img src="api_tests.png" alt="front_tests.png" style="height: 150px; width: auto;"/>
-<span style="color: gray; font-size: 12px;">Back tests</span>
+<span style="color: gray; font-size: 12px; display: block;">Back tests</span>
