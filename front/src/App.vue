@@ -21,7 +21,7 @@ const processResults = ({ resultCount, results, artist }: SearchAlbumData) => {
 </script>
 
 <template>
-  <div class="container mx-auto text-center py-9">
+  <div class="px-5 sm:container mx-auto text-center py-9">
     <SearchAlbum @searchResults="processResults" />
 
     <h1 class="text-2xl underline mt-11 font-semibold">Albums!</h1>
@@ -35,28 +35,21 @@ const processResults = ({ resultCount, results, artist }: SearchAlbumData) => {
         Albums for
         <span class="font-bold">{{ artistName }}: {{ resultCountValue }}</span>
       </h1>
-      <div class="grid grid-cols-5 gap-4">
-        <div v-for="album in resultsData" key="album.artistId">
-          <Card
-            :img="album.artworkUrl100"
-            :albumName="album.collectionName"
-            :artistName="album.artistName"
-            :releaseDate="album.releaseDate"
-            :artistViewUrl="album.artistViewUrl"
-            :collectionViewUrl="album.collectionViewUrl"
-            :genre="album.primaryGenreName"
-            :trackCount="album.trackCount"
-          />
-          <!-- <h2>{{ album.collectionName }}</h2>
-          <p>{{ album.artistName }}</p>
-          <p>{{ album.releaseDate }}</p>
-          <p>{{ album.trackCount }} tracks</p>
-          <p>{{ album.country }}</p>
-          <p>{{ album.primaryGenreName }}</p>
-          <p>{{ album.artworkUrl100 }}</p>
-          <p>{{ album.artistViewUrl }}</p>
-          <p>{{ album.collectionViewUrl }}</p> -->
-        </div>
+      <div
+        class="grid grid-cols-1 justify-items-center sm:gap-4 sm:grid-cols-2 md:grid-cols-4"
+      >
+        <Card
+          v-for="album in resultsData"
+          :key="album.artistId"
+          :img="album.artworkUrl100"
+          :albumName="album.collectionName"
+          :artistName="album.artistName"
+          :releaseDate="album.releaseDate"
+          :artistViewUrl="album.artistViewUrl"
+          :collectionViewUrl="album.collectionViewUrl"
+          :genre="album.primaryGenreName"
+          :trackCount="album.trackCount"
+        />
       </div>
     </div>
   </div>

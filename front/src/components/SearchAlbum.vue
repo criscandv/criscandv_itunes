@@ -22,7 +22,7 @@ onBeforeMount(() => {
 <template>
   <div>
     <h1 class="text-3xl font-semibold">Find artist</h1>
-    <div class="mt-3">
+    <form class="mt-3" @submit.prevent="findAlbumByArtist">
       <input
         type="text"
         v-model="artist"
@@ -30,12 +30,12 @@ onBeforeMount(() => {
         placeholder="Artist name"
       />
       <button
-        @click="findAlbumByArtist"
+        type="submit"
         class="bg-sky-500 hover:bg-teal-dark text-white uppercase text-lg ml-3 py-1 px-2 rounded transition-all duration-500 ease-in-out transform hover:scale-110"
       >
         Search
       </button>
-    </div>
+    </form>
   </div>
 </template>
 
