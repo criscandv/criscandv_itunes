@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import SearchAlbum from "./components/SearchAlbum.vue";
+import Card from "./components/Card.vue";
 
 interface SearchAlbumData {
   resultCount: number;
@@ -30,21 +31,31 @@ const processResults = ({ resultCount, results, artist }: SearchAlbumData) => {
       </h1>
     </div>
     <div v-else>
-      <h1 class="mb-3">
+      <h1 class="my-6">
         Albums for
         <span class="font-bold">{{ artistName }}: {{ resultCountValue }}</span>
       </h1>
       <div class="grid grid-cols-5 gap-4">
-        <div v-for="album in resultsData">
-          <h2>{{ album.collectionName }}</h2>
+        <div v-for="album in resultsData" key="album.artistId">
+          <Card
+            :img="album.artworkUrl100"
+            :albumName="album.collectionName"
+            :artistName="album.artistName"
+            :releaseDate="album.releaseDate"
+            :artistViewUrl="album.artistViewUrl"
+            :collectionViewUrl="album.collectionViewUrl"
+            :genre="album.primaryGenreName"
+            :trackCount="album.trackCount"
+          />
+          <!-- <h2>{{ album.collectionName }}</h2>
           <p>{{ album.artistName }}</p>
           <p>{{ album.releaseDate }}</p>
-          <p>{{ album.collectionCensoredName }}</p>
           <p>{{ album.trackCount }} tracks</p>
-          <p>{{ album.copyright }}</p>
           <p>{{ album.country }}</p>
           <p>{{ album.primaryGenreName }}</p>
           <p>{{ album.artworkUrl100 }}</p>
+          <p>{{ album.artistViewUrl }}</p>
+          <p>{{ album.collectionViewUrl }}</p> -->
         </div>
       </div>
     </div>
