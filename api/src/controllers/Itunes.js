@@ -8,7 +8,6 @@ itunes.albumsList = async (req, res) => {
 
   let { data } = await search(artist);
   let { resultCount, results } = data;
-  console.log({ resultCount, resutls: results.length });
   let filteredResults = removeDuplicates(results, "collectionName");
 
   res.status(200).json({

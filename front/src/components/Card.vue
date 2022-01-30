@@ -12,8 +12,6 @@ defineProps<{
   trackCount: number;
 }>();
 
-let releaseDateTransform = ref<string>("");
-
 const transformDate = (val: string) => {
   let date = new Date(val);
   let year: number = date.getFullYear();
