@@ -1,6 +1,9 @@
 # FRONT
 front/node_modules
 front/package-lock.json
+front/dist
+front/dist-ssr
+front/*.local
 
 # API
 api/node_modules
