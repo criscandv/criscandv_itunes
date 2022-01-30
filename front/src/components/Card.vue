@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref, computed } from "vue";
+
 defineProps<{
   img: string;
   albumName: string;
@@ -9,6 +11,19 @@ defineProps<{
   genre: string;
   trackCount: number;
 }>();
+
+let releaseDateTransform = ref<string>("");
+
+const transformDate = (val: string) => {
+  let date = new Date(val);
+  let year: number = date.getFullYear();
+  let month: string | number =
+    date.getMonth() + 1 > 9 ? date.getMonth() + 1 : "0" + (date.getMonth() + 1);
+  let day: string | number =
+    date.getDate() > 9 ? date.getDate() : "0" + date.getDate();
+
+  return `${year}-${month}-${day}`;
+};
 </script>
 
 <template>
@@ -45,7 +60,7 @@ defineProps<{
       >
       <span
         class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2"
-        >Release at: {{ releaseDate }}</span
+        >Release at: {{ transformDate(releaseDate) }}</span
       >
     </div>
   </div>
