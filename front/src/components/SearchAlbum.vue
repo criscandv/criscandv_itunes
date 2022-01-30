@@ -20,10 +20,22 @@ onBeforeMount(() => {
 </script>
 
 <template>
-  <h1 class="text-3xl font-semibold">Find artist</h1>
-  <div class="mt-3">
-    <input type="text" v-model="artist" />
-    <button @click="findAlbumByArtist">Buscar</button>
+  <div>
+    <h1 class="text-3xl font-semibold">Find artist</h1>
+    <div class="mt-3">
+      <input
+        type="text"
+        v-model="artist"
+        class="py-1 px-2 w-6/12 text-grey-darkest border-2 border-sky-500 rounded-md"
+        placeholder="Artist name"
+      />
+      <button
+        @click="findAlbumByArtist"
+        class="bg-sky-500 hover:bg-teal-dark text-white uppercase text-lg ml-3 py-1 px-2 rounded transition-all duration-500 ease-in-out transform hover:scale-110"
+      >
+        Search
+      </button>
+    </div>
   </div>
 </template>
 
